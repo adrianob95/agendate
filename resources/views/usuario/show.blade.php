@@ -1,0 +1,67 @@
+@extends('layouts.template')
+
+@section('title', config('app.name').' - Mostrar Usuario')
+@section('pagina', 'Mostrar Usuario')
+@section('pagina2', 'Mostrar Usuario')
+@section('content')
+<script>
+    $('.alert').alert();
+</script>
+
+<form action="{{route('usuario.store')}}" method="post">
+
+    @csrf
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="nome" class="required">Nome</label>
+            <input type="nome" readonly class="form-control" required name="nome" id="nome" placeholder="Nome do Usuario" value="{{$usuario->nome}}">
+
+        </div>
+        <div class="form-group col-md-3">
+            <label for="cpf">CPF</label>
+            <input type="text" readonly name="cpf" value="{{$usuario->cpf}}" class=" form-control" id="cpf" placeholder="Numero do CPF">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="datarecebido">RG</label>
+            <input type="text" readonly name="rg" value="{{$usuario->rg}}" class=" form-control" id="rg" placeholder="Numero do RG">
+        </div>
+    </div>
+    <div class=" form-row">
+        <div class="form-group col-md-3">
+            <label for="titulo">Titulo de Eleitor</label>
+            <input type="text" readonly name="titulo" value="{{$usuario->titulo}}" class=" form-control" name="titulo" id="titulo" placeholder="Titulo de Eleitor">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="contato">Contato</label>
+            <input type="tel" readonly name="contato" value="{{$usuario->contato}}" class=" form-control" pattern="[0-9]{11}$" id="contato" placeholder="Celular">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="endereco">Endereço</label>
+            <input type="text" readonly class="form-control" value="{{$usuario->endereco}}" name=" endereco" id="endereco" placeholder="Seu endereço completo">
+        </div>
+        <!-- <div class="form-group col-md-2">
+            <label for="cidade" class="required">Cidade</label>
+            <input type="text" class="form-control" required name="cidade" id="cidade" placeholder="Cidade" value="Santo Amaro">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="cep" class="required">CEP</label>
+            <input type="text" placeholder="44200000" name="cep" required class="form-control" value="44200000" id="cep">
+        </div> -->
+    </div>
+
+
+
+
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="obs">Observação</label>
+            <textarea rows="5" readonly class="form-control" name=" obs" id="obs">{{$usuario->obs}}</textarea>
+        </div>
+    </div>
+    <h5>Cadastrado por: {{$usuario->user->name}}</h5>
+
+
+
+</form>
+
+@stop
