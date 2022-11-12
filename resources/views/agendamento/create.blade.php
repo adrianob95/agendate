@@ -1021,11 +1021,11 @@
 <script>
     document.getElementById('corpo').style.display = 'none';
 
-    // const urlParams = new URLSearchParams(window.location.search);
-    // const products = urlParams.get("usuario");
-    // if (!products.length == 0) {
-    //     document.getElementById('corpo').style = 'display: block';
-    //     document.getElementById('btnnovo').style = "display: none";
-    // }
+    const urlParams = new URLSearchParams(window.location.search);
+    const products = urlParams.get("usuario");
+    if (!products.length == 0) {
+        document.getElementById('corpo').style = 'display: block';
+        document.getElementById('btnnovo').style = "display: none";
+    }
 </script>
 @stop

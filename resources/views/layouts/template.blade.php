@@ -63,92 +63,104 @@
     <header id="header" class="fixed-top d-flex align-items-center" style="color: black;">
         <div class=" container d-flex align-items-center justify-content-between">
 
-        <div class="logo">
-            <h1><a href=" {{route('index')}}"><span>{{config('app.name')}}
-                    </span></a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-        </div>
+            <div class="logo">
+                <h1><a href=" {{route('index')}}"><span>{{config('app.name')}}
+                        </span></a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
 
-        <nav id="navbar" class="navbar">
-            <ul>
-
-
-                <li class="dropdown"><a href="#"><span>Usuario</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
+            <nav id="navbar" class="navbar">
+                <ul>
 
 
-                        <li><a href="{{route('usuario.create')}}">Cadastrar</a></li>
-                        <li><a href="{{route('usuario.index')}}">Exibir</a></li>
-
-
-                    </ul>
-                </li>
-                <li class="dropdown"><a href="#"><span>Atendimento</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-
-
-                        <li><a href="{{route('atendimento.create')}}">Cadastrar</a></li>
-                        <li><a href="{{route('atendimento.index')}}">Exibir</a></li>
-
-
-                    </ul>
-                </li>
-
-                <li class="dropdown"><a href="#"><span>Agendamento</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-
-
-                        <li><a href="{{route('agendamento.create')}}">Cadastrar</a></li>
-                        <li><a href="{{route('agendamento.index')}}">Exibir</a></li>
-
-
-                    </ul>
-                </li>
-                <li class="dropdown"><a href="#"><span>Alistamento</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-
-
-                        <li><a href="{{route('alistamento.create')}}">Cadastrar</a></li>
-                        <li><a href="{{route('alistamento.index')}}">Exibir</a></li>
-
-
-                    </ul>
-                </li>
-
-                @if(Auth::check())
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <li class="dropdown"><a href="#"><span>{{Auth::user()->name}}</span> <i class="bi bi-chevron-down"></i></a>
+                    <li class="dropdown"><a href="#"><span>Usuario</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
 
-                            <li><a href="{{ route('profile.show') }}">Perfil</a></li>
-                            <li class="dropdown"><a href="#"><span>Administrador</span> <i class="bi bi-chevron-down"></i></a>
-                                <ul>
-                                    <li><a href="{{route('register')}}">Cadastrar novo Administrador</a></li>
-                                    <li><a href="#footer">Contato</a></li>
-                                </ul>
-                            </li>
-                            <li><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                        this.closest('form').submit(); " role="button">Sair</a>
-                            </li>
+
+                            <li><a href="{{route('usuario.create')}}">Cadastrar</a></li>
+                            <li><a href="{{route('usuario.index')}}">Exibir</a></li>
+
+
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#"><span>Exames</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+
+
+                            <li><a href="{{route('requisicao.create')}}">Cadastrar</a></li>
+                            <li><a href="{{route('requisicao.index')}}">Exibir</a></li>
+
+
+                        </ul>
+                    </li>
+
+                    <li class="dropdown"><a href="#"><span>Atendimento</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+
+
+                            <li><a href="{{route('atendimento.create')}}">Cadastrar</a></li>
+                            <li><a href="{{route('atendimento.index')}}">Exibir</a></li>
 
 
                         </ul>
                     </li>
 
 
-
-                    </a>
-
-                </form>
-
-                @endif
+                    <li class="dropdown"><a href="#"><span>Agendamento</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
 
 
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
+                            <li><a href="{{route('agendamento.create')}}">Cadastrar</a></li>
+                            <li><a href="{{route('agendamento.index')}}">Exibir</a></li>
+
+
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#"><span>Alistamento</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+
+
+                            <li><a href="{{route('alistamento.create')}}">Cadastrar</a></li>
+                            <li><a href="{{route('alistamento.index')}}">Exibir</a></li>
+
+
+                        </ul>
+                    </li>
+
+                    @if(Auth::check())
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <li class="dropdown"><a href="#"><span>{{Auth::user()->name}}</span> <i class="bi bi-chevron-down"></i></a>
+                            <ul>
+
+                                <li><a href="{{ route('profile.show') }}">Perfil</a></li>
+                                <li class="dropdown"><a href="#"><span>Administrador</span> <i class="bi bi-chevron-down"></i></a>
+                                    <ul>
+                                        <li><a href="{{route('register')}}">Cadastrar novo Administrador</a></li>
+                                        <li><a href="#footer">Contato</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        this.closest('form').submit(); " role="button">Sair</a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+
+
+
+                        </a>
+
+                    </form>
+
+                    @endif
+
+
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
 
         </div>
     </header><!-- End Header -->

@@ -10,7 +10,9 @@ use App\Models\Procedimento;
 use App\Models\Requisicao;
 use App\Models\Situacao;
 use App\Models\Usuario;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +30,24 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+// Route::get('/confirm-password', function () {
+//     return view('auth.confirm-password');
+// })->middleware('auth')->name('password.confirm');
+
+
+// Route::post('/confirm-password', function (Request $request) {
+//     if (!Hash::check($request->password, $request->user()->password)) {
+//         return back()->withErrors([
+//             'password' => ['The provided password does not match our records.']
+//         ]);
+//     }
+
+//     $request->session()->passwordConfirmed();
+
+//     return redirect()->intended();
+// })->middleware(['auth', 'throttle:6,1']);
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -40,10 +60,34 @@ Route::middleware([
         return view('index');
     })->name('index');
 
+
+    // Route::resource('usuario', UsuarioController::class, [
+    //     'only' => [
+    //         'index',
+    //         'show'
+    //     ]
+    //     ]);
+
+    // Route::resource('usuario', UsuarioController::class, [
+    //     'except' => [
+    //         'index',
+    //         'show'
+    //     ]
+    //     ])->middleware(['web']);
     Route::resource("usuario", UsuarioController::class);
+    Route::get('usuario/{usuario}/editar', [UsuarioController::class, 'edit'])->name('usuario.edit')->middleware(['password.confirm']);
+    Route::get('usuario/{usuario}', [UsuarioController::class, 'show'])->name('usuario.show')->middleware(['password.confirm']);
+   
     Route::resource("atendimento", AtendimentoController::class);
     Route::resource("alistamento", AlistamentoController::class);
     Route::resource("agendamento", AgendamentoController::class);
+    Route::resource("requisicao", RequisicaoController::class);
+
+    Route::get('/situacao/{requisicao}/criar', [SituacaoController::class, 'create'])->name('situacao.create');
+    Route::post('/situacao/{requisicao}', [SituacaoController::class, 'store'])->name('situacao.store');
+    Route::get('/situacao/{requisicao}', [SituacaoController::class, 'show'])->name('situacao.show');
+    
+
     // Route::get('/buscarRequisicao', function () {
     //     return view('buscarRequisicao', ['requisicoes' => Requisicao::with('latestSituacao')->get()]);
     // })->name('buscarRequisicao');

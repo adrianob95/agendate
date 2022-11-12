@@ -109,12 +109,12 @@
         btn.href = "{{route('usuario.create')}}?url=atendimento.create&usuarioid=" + document.getElementById('nome').value + String.fromCharCode(event.keyCode);;
     }
 </script>
-<!-- <script>
+<script>
     const urlParams = new URLSearchParams(window.location.search);
     const products = urlParams.get("usuario");
     if (!products.length == 0) {
         document.getElementById('corpo').style = 'display: block';
         document.getElementById('btnnovo').style = "display: none";
     }
-</script> -->
+</script>
 @stop

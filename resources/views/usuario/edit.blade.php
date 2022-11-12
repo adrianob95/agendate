@@ -44,13 +44,15 @@
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
+
         <div class="form-group col-md-3">
-            <label for="contato">Contato (ex. 75981000000)</label>
-            <input type="tel" name="contato" value="@if(old('contato')){{ old('contato') }}@else{{ $usuario->contato }}@endif" class="form-control {{$errors->any() ? ($errors->has('contato') ? 'is-invalid' : 'is-valid') : '' }}" pattern="[0-9]{11}$" id="contato" placeholder="Apenas numero com DDD e 9">
-            @error('contato')
+            <label for="sus">N° Cartão do SUS</label>
+            <input type="text" value="@if(old('sus')){{ old('sus') }}@else{{ $usuario->sus }}@endif" class="form-control {{$errors->any() ? ($errors->has('sus') ? 'is-invalid' : 'is-valid') : '' }}" name="sus" id="sus" placeholder="N° do CNS">
+            @error('sus')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
+
         <div class="form-group col-md-6">
             <label for="endereco">Endereço</label>
             <input type="text" class="form-control {{$errors->any() ? ($errors->has('endereco') ? 'is-invalid' : 'is-valid') : '' }}" value="@if(old('endereco')){{ old('endereco') }}@else{{ $usuario->endereco }}@endif" name=" endereco" id="endereco" placeholder="Seu endereço completo">
@@ -69,7 +71,7 @@
     </div>
 
     <div class=" form-row">
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
             <label for="titulo">Data de nascimento</label>
             <input type="date" value="@if(old('datanascimento')){{ old('datanascimento') }}@else{{ $usuario->datanascimento }}@endif" class="form-control {{$errors->any() ? ($errors->has('datanascimento') ? 'is-invalid' : 'is-valid') : '' }}" name="datanascimento" id="datanascimento" placeholder="Data de nacimento">
             @error('datanascimento')
@@ -83,13 +85,24 @@
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
             <label for="endereco">Senha</label>
             <input type="password" value="@if(old('senha')){{ old('senha') }}@else{{ $usuario->senha }}@endif" class="form-control {{$errors->any() ? ($errors->has('senha') ? 'is-invalid' : 'is-valid') : '' }}" name="senha" id="senha" placeholder="Senha">
             @error('senha')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
+
+
+        <div class="form-group col-md-3">
+            <label for="contato">Contato (ex. 75981000000)</label>
+            <input type="tel" name="contato" value="@if(old('contato')){{ old('contato') }}@else{{ $usuario->contato }}@endif" class="form-control {{$errors->any() ? ($errors->has('contato') ? 'is-invalid' : 'is-valid') : '' }}" pattern="[0-9]{11}$" id="contato" placeholder="Apenas numero com DDD e 9">
+            @error('contato')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+
         <!-- <div class="form-group col-md-2">
             <label for="cidade" class="required">Cidade</label>
             <input type="text" class="form-control" required name="cidade" id="cidade" placeholder="Cidade" value="Santo Amaro">

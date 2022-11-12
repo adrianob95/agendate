@@ -15,6 +15,7 @@ class Usuario extends Model
         'cpf',
         'rg',
         'titulo',
+        'sus',
         'email',
         'senha',
         'pai',

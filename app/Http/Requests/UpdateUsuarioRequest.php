@@ -30,6 +30,7 @@ class UpdateUsuarioRequest extends FormRequest
             'cpf' => ['nullable', Rule::unique('usuarios')->ignore($this->usuario), 'numeric', 'digits:11', 'cpf'],
             'rg' => ['nullable', Rule::unique('usuarios')->ignore($this->usuario), 'numeric', 'digits:10'],
             'titulo' => ['nullable', Rule::unique('usuarios')->ignore($this->usuario), 'numeric', 'digits:12'],
+            'sus' => ['nullable', Rule::unique('usuarios')->ignore($this->usuario), 'numeric', 'digits:15', 'cns'],
             'endereco' => ['nullable', 'max:255', 'min:2'],
             'contato' => ['nullable', 'numeric', 'digits:11' ],
             'email' => ['nullable', 'email'],

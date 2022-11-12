@@ -29,29 +29,45 @@
     <div class=" form-row">
         <div class="form-group col-md-3">
             <label for="titulo">Titulo de Eleitor</label>
-            <input type="text" readonly name="titulo" value="{{$usuario->titulo}}" class=" form-control" name="titulo" id="titulo" placeholder="Titulo de Eleitor">
+            <input type="text" name="titulo" readonly value="{{$usuario->titulo}}" class=" form-control" name="titulo" id="titulo" placeholder="Titulo de Eleitor">
         </div>
         <div class="form-group col-md-3">
-            <label for="contato">Contato</label>
-            <input type="tel" readonly name="contato" value="{{$usuario->contato}}" class=" form-control" pattern="[0-9]{11}$" id="contato" placeholder="Celular">
+            <label for="sus">N° Cartão do SUS</label>
+            <input type="text" readonly value="{{$usuario->sus}}" class="form-control" name="sus" id="sus" placeholder="N° do CNS">
         </div>
         <div class="form-group col-md-6">
             <label for="endereco">Endereço</label>
-            <input type="text" readonly class="form-control" value="{{$usuario->endereco}}" name=" endereco" id="endereco" placeholder="Seu endereço completo">
+            <input type="text" class="form-control " readonly value="{{$usuario->endereco}}" name=" endereco" id="endereco" placeholder="Seu endereço completo">
         </div>
-        <!-- <div class="form-group col-md-2">
-            <label for="cidade" class="required">Cidade</label>
-            <input type="text" class="form-control" required name="cidade" id="cidade" placeholder="Cidade" value="Santo Amaro">
+    </div>
+    <div class=" form-row">
+        <div class="form-group col-md-2">
+            <label for="titulo">Data de nascimento</label>
+            <input type="date" readonly value="{{$usuario->datanascimento}}" class="form-control" name="datanascimento" id="datanascimento" placeholder="Data de nacimento">
+        </div>
+        <div class="form-group col-md-5">
+            <label for="contato">Email</label>
+            <input type="email" name="email" readonly value="{{$usuario->email}}" class="form-control" id="email" placeholder="Email">
         </div>
         <div class="form-group col-md-2">
-            <label for="cep" class="required">CEP</label>
-            <input type="text" placeholder="44200000" name="cep" required class="form-control" value="44200000" id="cep">
-        </div> -->
+            <label for="endereco">Senha</label>
+            <input type="text" readonly value="{{$usuario->senha}}" class="form-control" name="senha" id="senha" placeholder="Senha">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="contato">Contato (ex. 75981000000)</label>
+            <input type="tel" name="contato" readonly value="{{$usuario->contato}}" class="form-control" pattern="[0-9]{11}$" id="contato" placeholder="Apenas numero com DDD e 9">
+        </div>
     </div>
-
-
-
-
+    <div class=" form-row">
+        <div class="form-group col-md-6">
+            <label for="titulo">Nome completo do pai</label>
+            <input type="text" readonly value="{{$usuario->pai}}" class="form-control" name="pai" id="pai" placeholder="Nome do pai">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="contato">Nome completo da mãe</label>
+            <input type="text" name="mae" readonly value="{{$usuario->mae}}" class="form-control" id="mae" placeholder="Nome da mãe">
+        </div>
+    </div>
     <div class="form-row">
         <div class="form-group col-md-12">
             <label for="obs">Observação</label>
@@ -59,9 +75,6 @@
         </div>
     </div>
     <h5>Cadastrado por: {{$usuario->user->name}}</h5>
-
-
-
 </form>
 
 @stop

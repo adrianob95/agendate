@@ -44,13 +44,15 @@
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
+
         <div class="form-group col-md-3">
-            <label for="contato">Contato</label>
-            <input type="tel" name="contato" value="{{ old('contato') }}" class="form-control @error('contato') is-invalid @enderror" pattern="[0-9]{11}$" id="contato" placeholder="Celular">
-            @error('contato')
+            <label for="sus">N° Cartão do SUS</label>
+            <input type="text" value="{{ old('sus') }}" class="form-control @error('sus') is-invalid @enderror" name="sus" id="sus" placeholder="N° do CNS">
+            @error('sus')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
+
         <div class="form-group col-md-6">
             <label for="endereco">Endereço</label>
             <input type="text" value="{{ old('endereco') }}" class="form-control @error('endereco') is-invalid @enderror" name="endereco" id="endereco" placeholder="Seu endereço completo">
@@ -69,7 +71,7 @@
     </div>
 
     <div class=" form-row">
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
             <label for="titulo">Data de nascimento</label>
             <input type="date" value="{{ old('datanascimento') }}" class="form-control @error('datanascimento') is-invalid @enderror" name="datanascimento" id="datanascimento" placeholder="Data de nacimento">
             @error('datanascimento')
@@ -83,13 +85,26 @@
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-2">
             <label for="endereco">Senha</label>
-            <input type="password" value="{{ old('senha') }}" class="form-control @error('senha') is-invalid @enderror" name="senha" id="senha" placeholder="Senha">
+            <input type="text" value="{{ old('senha') }}" class="form-control @error('senha') is-invalid @enderror" name="senha" id="senha" placeholder="Senha">
             @error('senha')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
+
+        <div class="form-group col-md-3">
+            <label for="contato">Contato (ex. 75981000000)</label>
+            <input type="tel" name="contato" value="{{ old('contato') }}" class="form-control @error('contato') is-invalid @enderror" pattern="[0-9]{11}$" id="contato" placeholder="Celular">
+            @error('contato')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+
+
+
+
         <!-- <div class="form-group col-md-2">
             <label for="cidade" class="required">Cidade</label>
             <input type="text" class="form-control" required name="cidade" id="cidade" placeholder="Cidade" value="Santo Amaro">
@@ -102,6 +117,7 @@
 
 
     <div class=" form-row">
+
         <div class="form-group col-md-6">
             <label for="titulo">Nome completo do pai</label>
             <input type="text" value="{{ old('pai') }}" class="form-control @error('pai') is-invalid @enderror" name="pai" id="pai" placeholder="Nome do pai">
@@ -151,10 +167,8 @@
         } else if (usuarioid.length == 12) {
             document.getElementById('titulo').value = usuarioid;
 
-        } else {
-    } else document.getElementById('nome').value = usuarioid;
-        document.getElementById('nome').value = usuarioid;
+        } else document.getElementById('nome').value = usuarioid;
 
-    }
+    } else document.getElementById('nome').value = usuarioid;
 </script>
 @stop
