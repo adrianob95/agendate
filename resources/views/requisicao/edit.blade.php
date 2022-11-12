@@ -56,7 +56,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Editar requisicao</button>
-        <a id="btnnovo" class="btn btn-warning" href="{{route('usuario.create')}}?url=requisicao.create">Cadastre novo usuario</a>
+        <!-- <a id="btnnovo" class="btn btn-warning" href="{{route('usuario.create')}}?url=requisicao.create">Cadastre novo usuario</a> -->
 
     </div>
 </form>

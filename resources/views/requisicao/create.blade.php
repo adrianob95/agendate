@@ -41,7 +41,7 @@
 
 
             <div class="form-group col-md-5">
-                <label for="indicacao">Indicação</label>
+                <label for="indicacao">Indicação/motivo</label>
                 <input type="text" class="form-control" id="indicacao" name="indicacao" placeholder="Indicação/Motivo">
             </div>
             <div class="form-group col-md-5">

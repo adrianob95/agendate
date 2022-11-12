@@ -54,7 +54,8 @@
                     <a title="Editar requisicao" style="display: inline-block;" href="{{route('requisicao.edit', $requisicao->id)}}"><i class="bi-pencil" style="font-size: 1.4rem; color: green;"></i></a>
 
                     <button title="Exluir requisicao" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="{{route('requisicao.destroy', $requisicao->id)}}"><i class="bi-trash" style="font-size: 1.4rem; color: red;"></i></button>
-                    <a style="display: inline-block;" title="Alterar a situação" href="{{route('situacao.create', $requisicao->id)}}"><i class="bi bi-list-ol" style="font-size: 1.4rem; color: black;"></i></a>
+                    <a style="display: inline-block;" title="Alterar a situação" href="{{route('situacao.create', $requisicao->id)}}"><i class="bi bi-pencil-square" style="font-size: 1.4rem; color: pink;"></i></a>
+                    <a style="display: inline-block;" title="Verificar a situação" href="{{route('situacao.show', $requisicao->id)}}"><i class="bi bi-list-ol" style="font-size: 1.4rem; color: black;"></i></a>
                 </td>
             </tr>
 

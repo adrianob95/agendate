@@ -70,7 +70,7 @@
 
             </div>
         </div>
-
+        
         @endforeach
 
         <h7>Recebido em: {{$requisicao->datarecebido}} </h7>

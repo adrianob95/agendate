@@ -49,8 +49,10 @@
 
     </div>
 </form>
-<h6>Requisição registrado por: {{$requisicao->user->name}} em {{ \Carbon\Carbon::parse($requisicao->created_at)->format('d/m/Y - H:i:s')}}</h6>
+<h6 style="text-align: center;"><a id="btnnovo" class="btn btn-warning" href="{{route('situacao.show', $requisicao)}}">Verificar situação</a>
+</h6>
+    <h6 style="text-align: center;"><br>Requisição registrado por: {{$requisicao->user->name}} em {{ \Carbon\Carbon::parse($requisicao->created_at)->format('d/m/Y - H:i:s')}}</h6>
 
 
 
-@stop
+    @stop
