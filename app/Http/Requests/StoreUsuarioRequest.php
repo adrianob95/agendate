@@ -30,6 +30,7 @@ class StoreUsuarioRequest extends FormRequest
             'rg' => ['nullable', 'unique:usuarios','numeric', 'digits:10', ],
             'titulo' => ['nullable', 'unique:usuarios','numeric', 'digits:12'],
             'sus' => ['nullable', 'unique:usuarios','numeric', 'digits:15', 'cns'],
+            'nis' => ['nullable', 'unique:usuarios','numeric', 'digits:11', 'pis'],
             'endereco' => ['nullable', 'max:255', 'min:2'],
             'contato' => ['nullable', 'numeric','digits:11'],
             'email' => ['nullable', 'email'],

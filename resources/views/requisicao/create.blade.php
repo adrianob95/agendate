@@ -11,7 +11,7 @@
     <div class="form-group col-md-12">
         <fieldset>
             <label for="nome" class="required">Nome: </label>
-            <input autofocus list="usuarios" type="teext" onkeypress="up(event)" class="form-control" required name="nome" id="nome" value="@if(!is_null($usuarios->find(Request::query('usuario')))){{$usuarios->find(Request::query('usuario'))->nome}} - CPF: {{$usuarios->find(Request::query('usuario'))->cpf}} - RG: {{$usuarios->find(Request::query('usuario'))->rg}} - TITULO: {{$usuarios->find(Request::query('usuario'))->titulo}} - COD={{$usuarios->find(Request::query('usuario'))->id}}@endif" placeholder="Clique ou digite o nome do usuario, caso ao clicar e selecionar um usuario os campos abaixo não aparecer atualize a pagina ou clique fora.">
+            <input list="usuarios" type="teext" onkeypress="up(event)" class="form-control" required name="nome" id="nome" value="@if(!is_null($usuarios->find(Request::query('usuario')))){{$usuarios->find(Request::query('usuario'))->nome}} - CPF: {{$usuarios->find(Request::query('usuario'))->cpf}} - RG: {{$usuarios->find(Request::query('usuario'))->rg}} - TITULO: {{$usuarios->find(Request::query('usuario'))->titulo}} - COD={{$usuarios->find(Request::query('usuario'))->id}}@endif" placeholder="Clique ou digite o nome do usuario, caso ao clicar e selecionar um usuario os campos abaixo não aparecer atualize a pagina ou clique fora.">
             <h6 style="color: #1acc8d; margin-top: 12px;">Digite o nome do usuario para filtrar a lista. Cajo não encontre, clique no botão "Cadastre novo usuario".</h6>
             <a id="btnnovo" style="width: 100%;" class="btn btn-primary" href="{{route('usuario.create')}}?url=requisicao.create">Cadastre novo usuario</a>
 
@@ -128,8 +128,5 @@
         document.getElementById('corpo').style = 'display: block';
         document.getElementById('btnnovo').style = "display: none";
     }
-</script>
-<script>
-
 </script>
 @stop

@@ -8,7 +8,7 @@
     $('.alert').alert();
 </script>
 
-<form action="{{route('usuario.store') . '?url='.Request::query('url')}}" method="post">
+<form action="{{route('usuario.store') . '?url='.Request::query('url')}}@if(Request::query('lista'))&lista={{Request::query('lista')}}@endif" method="post">
     @csrf
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -117,15 +117,21 @@
 
 
     <div class=" form-row">
-
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-2">
+            <label for="cpf">NIS</label>
+            <input type="text" value="{{ old('nis') }}" name="nis" class="form-control @error('nis') is-invalid @enderror" id="nis" placeholder="Numero do NIS">
+            @error('nis')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="form-group col-md-5">
             <label for="titulo">Nome completo do pai</label>
             <input type="text" value="{{ old('pai') }}" class="form-control @error('pai') is-invalid @enderror" name="pai" id="pai" placeholder="Nome do pai">
             @error('pai')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-5">
             <label for="contato">Nome completo da mãe</label>
             <input type="text" name="mae" value="{{ old('mae') }}" class="form-control @error('mae') is-invalid @enderror" id="mae" placeholder="Nome da mãe">
             @error('email')
@@ -167,8 +173,9 @@
         } else if (usuarioid.length == 12) {
             document.getElementById('titulo').value = usuarioid;
 
-        } else document.getElementById('nome').value = usuarioid;
-
-    } else document.getElementById('nome').value = usuarioid;
+        }
+    } else if (usuarioid.length != 0) {
+        document.getElementById('nome').value = usuarioid;
+    }
 </script>
 @stop

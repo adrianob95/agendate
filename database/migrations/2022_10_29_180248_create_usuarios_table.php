@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('rg')->nullable();
             $table->string('titulo')->nullable();
             $table->string('sus')->nullable();
+            $table->string('nis')->nullable();
             $table->string('email')->nullable();
             $table->string('senha')->nullable();
             $table->string('pai')->nullable();

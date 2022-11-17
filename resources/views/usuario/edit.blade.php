@@ -115,14 +115,21 @@
 
 
     <div class=" form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-2">
+            <label for="cpf">NIS</label>
+            <input type="text" value="@if(old('nis')){{ old('nis') }}@else{{ $usuario->nis }}@endif" class="form-control {{$errors->any() ? ($errors->has('nis') ? 'is-invalid' : 'is-valid') : '' }}" name="nis" id="nis" placeholder="Numero do NIS">
+            @error('nis')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="form-group col-md-5">
             <label for="titulo">Nome completo do pai</label>
             <input type="text" value="@if(old('pai')){{ old('pai') }}@else{{ $usuario->pai }}@endif" class="form-control {{$errors->any() ? ($errors->has('pai') ? 'is-invalid' : 'is-valid') : '' }}" name="pai" id="pai" placeholder="Nome do pai">
             @error('pai')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-5">
             <label for="contato">Nome completo da mãe</label>
             <input type="text" name="mae" value="@if(old('mae')){{ old('mae') }}@else{{ $usuario->mae }}@endif" class="form-control {{$errors->any() ? ($errors->has('mae') ? 'is-invalid' : 'is-valid') : '' }}" id="mae" placeholder="Nome da mãe">
             @error('mae')

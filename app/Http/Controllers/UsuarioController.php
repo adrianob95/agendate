@@ -42,6 +42,12 @@ class UsuarioController extends Controller
             'user_id' =>  Auth::id(),
         ]);
 if($usuario = Usuario::create($request->all())){
+    if($request->query('lista')){
+                if ($request->query('url')) {
+                    return redirect()->route($request->query('url'), ['lista'=> $request->query('lista'),'usuario' => $usuario])->with('success', $usuario->nome . ' cadastrado com sucesso!');
+                } 
+    }
+
     if($request->query('url')){
                 return redirect()->route($request->query('url'), ['usuario'=>$usuario])->with('success', $usuario->nome . ' cadastrado com sucesso!');
     
@@ -49,6 +55,9 @@ if($usuario = Usuario::create($request->all())){
 return redirect()->route('index')->with('success', $usuario->nome.' cadastrado com sucesso!');
 }
     }
+
+
+    
 
     /**
      * Display the specified resource.

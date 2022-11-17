@@ -59,11 +59,15 @@
         </div>
     </div>
     <div class=" form-row">
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-2">
+            <label for="titulo">NIS</label>
+            <input type="text" readonly value="{{$usuario->nis}}" class="form-control" name="nis" id="nis" placeholder="NIS">
+        </div>
+        <div class="form-group col-md-5">
             <label for="titulo">Nome completo do pai</label>
             <input type="text" readonly value="{{$usuario->pai}}" class="form-control" name="pai" id="pai" placeholder="Nome do pai">
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-5">
             <label for="contato">Nome completo da mãe</label>
             <input type="text" name="mae" readonly value="{{$usuario->mae}}" class="form-control" id="mae" placeholder="Nome da mãe">
         </div>

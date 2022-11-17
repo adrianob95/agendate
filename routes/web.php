@@ -6,6 +6,7 @@ use App\Http\Controllers\AtendimentoController;
 use App\Http\Controllers\RequisicaoController;
 use App\Http\Controllers\SituacaoController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\ListaController;
 use App\Models\Procedimento;
 use App\Models\Requisicao;
 use App\Models\Situacao;
@@ -74,7 +75,9 @@ Route::middleware([
     //         'show'
     //     ]
     //     ])->middleware(['web']);
+
     Route::resource("usuario", UsuarioController::class);
+  
     Route::get('usuario/{usuario}/editar', [UsuarioController::class, 'edit'])->name('usuario.edit')->middleware(['password.confirm']);
     Route::get('usuario/{usuario}', [UsuarioController::class, 'show'])->name('usuario.show')->middleware(['password.confirm']);
    
@@ -83,10 +86,11 @@ Route::middleware([
     Route::resource("agendamento", AgendamentoController::class);
     Route::resource("requisicao", RequisicaoController::class);
 
+
     Route::get('/situacao/{requisicao}/criar', [SituacaoController::class, 'create'])->name('situacao.create');
     Route::post('/situacao/{requisicao}', [SituacaoController::class, 'store'])->name('situacao.store');
     Route::get('/situacao/{requisicao}', [SituacaoController::class, 'show'])->name('situacao.show');
-    
+
 
     // Route::get('/buscarRequisicao', function () {
     //     return view('buscarRequisicao', ['requisicoes' => Requisicao::with('latestSituacao')->get()]);
@@ -112,7 +116,10 @@ Route::middleware([
     // )->name('situacao.index');
     // Route::post('/criarSituacao/{requisicao}', [SituacaoController::class, 'create'])->name('situacao.create');
     // Route::get('/historico/{requisicao}', [SituacaoController::class, 'show'])->name('situacao.show');
-    
+    Route::resource("listas", ListaController::class);
+    Route::get('lista/{lista}/relacionar/{usuario?}', [ListaController::class, 'relacionar'])->name('listas.relacionar');
+    Route::get('lista/{lista}/remover/{usuario}', [ListaController::class, 'remover'])->name('listas.remover');
+    Route::post('lista/adicionar/', [ListaController::class, 'adicionar'])->name('listas.adicionar');
 });
 
 // Auth::routes();

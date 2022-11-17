@@ -63,9 +63,9 @@
     <header id="header" class="fixed-top d-flex align-items-center" style="color: black;">
         <div class=" container d-flex align-items-center justify-content-between">
 
-            <div class="logo">
+            <div class="logo d-print-none">
                 <h1><a href=" {{route('index')}}"><span>{{config('app.name')}}
-                        </span></a></h1>
+                </span></a></h1>
                 <!-- Uncomment below if you prefer to use an image logo -->
                 <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
@@ -90,6 +90,16 @@
 
                             <li><a href="{{route('requisicao.create')}}">Cadastrar</a></li>
                             <li><a href="{{route('requisicao.index')}}">Exibir</a></li>
+
+
+                        </ul>
+                    </li>
+
+                    <li class="dropdown"><a href="#"><span>Lista</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+
+                            <li><a href="{{route('listas.create')}}">Cadastrar</a></li>
+                            <li><a href="{{route('listas.index')}}">Exibir</a></li>
 
 
                         </ul>
@@ -129,9 +139,11 @@
                     </li>
 
                     @if(Auth::check())
+
+
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <li class="dropdown"><a href="#"><span>{{Auth::user()->name}}</span> <i class="bi bi-chevron-down"></i></a>
+                        <li class="dropdown"><a href="#"><span>{{explode(" ", Auth::user()->name)[0].' '.explode(" ", Auth::user()->name)[count(explode(" ", Auth::user()->name))-1]}}</span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
 
                                 <li><a href="{{ route('profile.show') }}">Perfil</a></li>
@@ -210,7 +222,7 @@
             @endif
             <div class="container">
 
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-between align-items-center d-print-none">
                     <h2>@yield('pagina','Inicio')</h2>
                     <ol>
                         <li><a href="/">Inicio</a></li>
@@ -235,7 +247,7 @@
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
-        <div class="footer-top">
+        <div class="footer-top d-print-none">
             <div class="container">
                 <div class="row">
 
@@ -263,7 +275,7 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="container d-print-none">
             <div class="copyright">
                 &copy; Copyright <strong><span>Bootslander</span></strong>. All Rights Reserved
             </div>

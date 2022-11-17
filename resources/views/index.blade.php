@@ -11,7 +11,7 @@
     <a disabled="disabled" style=" pointer-events: none;" href="{{route('usuario.index')}}"><button type="button" disabled class="btn btn-success btn-lg fleft a">Agendar documento</button></a>
 
     <a   href="{{route('requisicao.create')}}"><button type="button"  class="btn btn-success btn-lg fleft">Exames</button></a>
-    <a disabled="disabled" style=" pointer-events: none;" href="{{route('usuario.create')}}"><button type="button" disabled class="btn btn-success btn-lg fleft a">Cestas</button></a>
+    <a  href="{{route('listas.create')}}"><button type="button" class="btn btn-success btn-lg fleft a">Cestas</button></a>
     <a href="{{route('usuario.create')}}"><button type="button" class="btn btn-success btn-lg fleft">Cadastrar novo usuario</button></a>
     <a href="{{route('usuario.index')}}"><button type="button" class="btn btn-secondary btn-lg fleft a">Exibir usuarios</button></a>
 </div>
